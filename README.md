@@ -44,7 +44,14 @@ Babushka pre-installed.
 
 ## Pre built base boxes
 
-_COMING SOON_
+| Distribution | VagrantCloud box |
+| ------------ | ---------------- |
+| Ubuntu Precise 12.04 x86_64 | [fgrehm/precise64-lxc](https://vagrantcloud.com/fgrehm/precise64-lxc) |
+| Ubuntu Raring 13.04 x86_64 | [fgrehm/raring64-lxc](https://vagrantcloud.com/fgrehm/raring64-lxc) |
+| Ubuntu Saucy 13.10 x86_64 | [fgrehm/saucy64-lxc](https://vagrantcloud.com/fgrehm/saucy64-lxc) |
+| Debian Wheezy 7 x86_64 | [fgrehm/wheezy64-lxc](https://vagrantcloud.com/fgrehm/wheezy64-lxc) |
+
+_**NOTE:** None of the base boxes above have a provisioner pre-installed_
 
 
 ## What makes up for a vagrant-lxc base box?

@@ -20,7 +20,7 @@ This repository contains a set of scripts for creating base boxes for usage with
 ## Building the boxes
 
 _In order to build the boxes you need to have the `lxc-download`
-template available on your machine. If you don't have one around please 
+template available on your machine. If you don't have one around please
 create one based on [this](https://github.com/lxc/lxc/blob/master/templates/lxc-download.in)
 and drop it on your lxc templates path (usually `/usr/share/lxc/templates`)._
 
@@ -44,14 +44,14 @@ Babushka pre-installed.
 
 ## Pre built base boxes
 
+_**NOTE:** None of the base boxes below have a provisioner pre-installed_
+
 | Distribution | VagrantCloud box |
 | ------------ | ---------------- |
 | Ubuntu Precise 12.04 x86_64 | [fgrehm/precise64-lxc](https://vagrantcloud.com/fgrehm/precise64-lxc) |
 | Ubuntu Raring 13.04 x86_64 | [fgrehm/raring64-lxc](https://vagrantcloud.com/fgrehm/raring64-lxc) |
 | Ubuntu Saucy 13.10 x86_64 | [fgrehm/saucy64-lxc](https://vagrantcloud.com/fgrehm/saucy64-lxc) |
 | Debian Wheezy 7 x86_64 | [fgrehm/wheezy64-lxc](https://vagrantcloud.com/fgrehm/wheezy64-lxc) |
-
-_**NOTE:** None of the base boxes above have a provisioner pre-installed_
 
 
 ## What makes up for a vagrant-lxc base box?

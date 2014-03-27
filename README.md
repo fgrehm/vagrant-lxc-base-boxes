@@ -6,16 +6,16 @@ This repository contains a set of scripts for creating base boxes for usage with
 ## What distros / versions can I build with this?
 
 * Ubuntu
-  - Precise 12.04
-  - Quantal 12.10
-  - Raring 13.04
-  - Saucy 13.10
-  - Trusty 14.04
+  - Precise 12.04 x86_64
+  - Quantal 12.10 x86_64
+  - Raring 13.04 x86_64
+  - Saucy 13.10 x86_64
+  - Trusty 14.04 x86_64
 * Debian
-  - Squeeze
-  - Wheezy
-  - Jessie
-  - Sid
+  - Squeeze x86_64
+  - Wheezy x86_64
+  - Jessie x86_64
+  - Sid x86_64
 
 ## Building the boxes
 

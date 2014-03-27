@@ -19,10 +19,10 @@ This repository contains a set of scripts for creating base boxes for usage with
 
 ## Building the boxes
 
-In order to build the boxes you need to have the `lxc-download`
+_In order to build the boxes you need to have the `lxc-download`
 template available on your machine. If you don't have one around please 
 create one based on [this](https://github.com/lxc/lxc/blob/master/templates/lxc-download.in)
-and drop it on your lxc templates path (usually `/usr/share/lxc/templates`).
+and drop it on your lxc templates path (usually `/usr/share/lxc/templates`)._
 
 ```sh
 git clone https://github.com/fgrehm/vagrant-lxc-base-boxes.git

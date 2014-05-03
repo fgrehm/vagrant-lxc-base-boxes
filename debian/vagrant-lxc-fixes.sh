@@ -20,7 +20,7 @@ if [ ${DISTRIBUTION} = 'debian' ]; then
 
   # Fixes some networking issues
   # See https://github.com/fgrehm/vagrant-lxc/issues/91 for more info
-  sed -i -e "s/\(127.0.0.1\s\+localhost\)/\1\n127.0.1.1\t${RELEASE}-base\n/g" ${ROOTFS}/etc/hosts
+  sed -i -e "s/\(127.0.0.1\s\+localhost\)/\1\n127.0.1.1\t${CONTAINER}\n/g" ${ROOTFS}/etc/hosts
 
   # Ensures that `/tmp` does not get cleared on halt
   # See https://github.com/fgrehm/vagrant-lxc/issues/68 for more info

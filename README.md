@@ -63,5 +63,5 @@ See [vagrant-lxc/BOXES.md](https://github.com/fgrehm/vagrant-lxc/blob/master/BOX
 
 * We can't get the NFS client to be installed on the containers used for building
   Ubuntu 13.04 / 13.10 / 14.04 base boxes.
-* Puppet can't be installed on Ubuntu 14.04 / Debian Sid
+* Puppet can't be installed on Debian Sid
 * Salt can't be installed on Ubuntu 13.04

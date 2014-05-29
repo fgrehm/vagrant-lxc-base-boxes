@@ -55,8 +55,6 @@ fi
 if [ $PUPPET = 1 ]; then
   if $(lxc-attach -n ${CONTAINER} -- which puppet &>/dev/null); then
     log "Puppet has been installed on container, skipping"
-  elif [ ${RELEASE} = 'trusty' ]; then
-    warn "Puppet can't be installed on Ubuntu Trusty 14.04, skipping"
   elif [ ${RELEASE} = 'sid' ]; then
     warn "Puppet can't be installed on Debian sid, skipping"
   else

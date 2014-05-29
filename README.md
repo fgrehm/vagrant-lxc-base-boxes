@@ -49,7 +49,7 @@ _**NOTE:** None of the base boxes below have a provisioner pre-installed_
 | Distribution | VagrantCloud box |
 | ------------ | ---------------- |
 | Ubuntu Precise 12.04 x86_64 | [fgrehm/precise64-lxc](https://vagrantcloud.com/fgrehm/precise64-lxc) |
-| Ubuntu Trusty 14.04 x86_64 | [fgrehm/trusty64-lxc](https://vagrantcloud.com/fgrehm/trusty64-lxc) (see [vagrant-lxc#278](https://github.com/fgrehm/vagrant-lxc/issues/278) for a known issue) |
+| Ubuntu Trusty 14.04 x86_64 | [fgrehm/trusty64-lxc](https://vagrantcloud.com/fgrehm/trusty64-lxc) |
 | Debian Wheezy 7 x86_64 | [fgrehm/wheezy64-lxc](https://vagrantcloud.com/fgrehm/wheezy64-lxc) |
 
 

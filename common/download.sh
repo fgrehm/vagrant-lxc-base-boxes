@@ -30,7 +30,7 @@ if [ $RELEASE = 'raring' ]; then
   utils.lxc.create -t ubuntu -- \
                    --release ${RELEASE} \
                    --arch ${ARCH}
-elif [ $RELEASE = 'squeeze' ]; then
+elif [ $RELEASE = 'squeeze' ] || [ $RELEASE = 'wheezy' ]; then
   utils.lxc.create -t debian -- \
                    --release ${RELEASE} \
                    --arch ${ARCH}

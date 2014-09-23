@@ -12,5 +12,8 @@ info "Cleaning up '${CONTAINER}'..."
 log 'Removing temporary files...'
 rm -rf ${ROOTFS}/tmp/*
 
+log 'cleaning up dhcp leases'
+rm -f ${ROOTFS}/var/lib/dhcp/*
+
 log 'Removing downloaded packages...'
 utils.lxc.attach apt-get clean

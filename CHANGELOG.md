@@ -1,4 +1,11 @@
-## YYYY-MM-DD (unreleased)
+## v1.2.0 (Sep 22, 2014)
+
+IMPROVEMENTS:
+
+  - Remove DHCP leases before packaging
+
+
+## v1.1.0 (May 3, 2014)
 
 BASE BOXES:
 
@@ -29,5 +36,5 @@ BASE BOXES:
 
 ## Previous
 
-The changelog began with version YYYY-MM-DD and before that the changes
+The changelog began with version 1.1.0 and before that the changes
 were being tracked from [vagrant-lxc](https://github.com/fgrehm/vagrant-lxc/blob/master/CHANGELOG.md).

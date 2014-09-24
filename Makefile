@@ -1,5 +1,6 @@
 UBUNTU_BOXES= precise quantal raring saucy trusty
 DEBIAN_BOXES= squeeze wheezy sid jessie
+CENTOS_BOXES= 6
 TODAY=$(shell date -u +"%Y-%m-%d")
 
 # Replace i686 with i386 and x86_64 with amd64
@@ -11,6 +12,7 @@ all: ubuntu debian
 
 ubuntu: $(UBUNTU_BOXES)
 debian: $(DEBIAN_BOXES)
+centos: $(CENTOS_BOXES)
 
 # REFACTOR: Figure out how can we reduce duplicated code
 $(UBUNTU_BOXES): CONTAINER = "vagrant-base-${@}-$(ARCH)"
@@ -27,6 +29,13 @@ $(DEBIAN_BOXES):
 	@sudo -E ./mk-debian.sh debian $(@) $(ARCH) $(CONTAINER) $(PACKAGE)
 	@sudo chmod +rw $(PACKAGE)
 	@sudo chown ${USER}: $(PACKAGE)
+$(CENTOS_BOXES): CONTAINER = "vagrant-base-centos-${@}-$(ARCH)"
+$(CENTOS_BOXES): PACKAGE = "output/${TODAY}/vagrant-lxc-centos-${@}-$(ARCH).box"
+$(CENTOS_BOXES):
+	@mkdir -p $$(dirname $(PACKAGE))
+	@sudo -E ./mk-centos.sh $(@) $(ARCH) $(CONTAINER) $(PACKAGE)
+	@sudo chmod +rw $(PACKAGE)
+	@sudo chown ${USER}: $(PACKAGE)
 
 acceptance: CONTAINER = "vagrant-base-acceptance-$(ARCH)"
 acceptance: PACKAGE = "output/${TODAY}/vagrant-lxc-acceptance-$(ARCH).box"
@@ -36,7 +45,13 @@ acceptance:
 	@sudo chmod +rw $(PACKAGE)
 	@sudo chown ${USER}: $(PACKAGE)
 
-clean: ALL_BOXES = ${DEBIAN_BOXES} ${UBUNTU_BOXES} acceptance
+release:
+	@test -z '$(version)' && echo 'version parameter not provided to `make`!' && exit 1 || return 0
+	gh release create -d -a output/${TODAY} $(version)
+	git tag $(version)
+	git push && git push --tags
+
+clean: ALL_BOXES = ${DEBIAN_BOXES} ${UBUNTU_BOXES} ${CENTOS_BOXES} acceptance
 clean:
 	@for r in $(ALL_BOXES); do \
 		sudo -E ./clean.sh $${r}\

@@ -6,21 +6,25 @@ export ERROR_COLOR='\033[31;01m'
 export WARN_COLOR='\033[33;01m'
 
 log() {
-  echo "    [${RELEASE}] ${1}" >>${LOG}
-  echo "    [${RELEASE}] ${1}" >&2
+  LOG_PREFIX="${DISTRIBUTION}-${RELEASE}"
+  echo "    [${LOG_PREFIX}] ${1}" >>${LOG}
+  echo "    [${LOG_PREFIX}] ${1}" >&2
 }
 
 warn() {
-  echo "==> [${RELEASE}] [WARN] ${1}" >>${LOG}
-  echo -e "${WARN_COLOR}==> [${RELEASE}] ${1}${NO_COLOR}"
+  LOG_PREFIX="${DISTRIBUTION}-${RELEASE}"
+  echo "==> [${LOG_PREFIX}] [WARN] ${1}" >>${LOG}
+  echo -e "${WARN_COLOR}==> [${LOG_PREFIX}] ${1}${NO_COLOR}"
 }
 
 info() {
-  echo "==> [${RELEASE}] [INFO] ${1}" >>${LOG}
-  echo -e "${OK_COLOR}==> [${RELEASE}] ${1}${NO_COLOR}"
+  LOG_PREFIX="${DISTRIBUTION}-${RELEASE}"
+  echo "==> [${LOG_PREFIX}] [INFO] ${1}" >>${LOG}
+  echo -e "${OK_COLOR}==> [${LOG_PREFIX}] ${1}${NO_COLOR}"
 }
 
 confirm() {
+  LOG_PREFIX="${DISTRIBUTION}-${RELEASE}"
   question=${1}
   default=${2}
   default_prompt=
@@ -33,7 +37,7 @@ confirm() {
     default='Yes'
   fi
 
-  echo -e -n "${WARN_COLOR}==> [${RELEASE}] ${question} [${default_prompt}] ${NO_COLOR}" >&2
+  echo -e -n "${WARN_COLOR}==> [${LOG_PREFIX}] ${question} [${default_prompt}] ${NO_COLOR}" >&2
   read answer
 
   if [ -z $answer ]; then
@@ -49,5 +53,6 @@ confirm() {
 }
 
 debug() {
-  [ ! $DEBUG ] || echo "    [${RELEASE}] [DEBUG] ${1}" >&2
+  LOG_PREFIX="${DISTRIBUTION}-${RELEASE}"
+  [ ! $DEBUG ] || echo "    [${LOG_PREFIX}] [DEBUG] ${1}" >&2
 }

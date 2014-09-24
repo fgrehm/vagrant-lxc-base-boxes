@@ -8,11 +8,11 @@ if [ "$(id -u)" != "0" ]; then
   exit 1
 fi
 
-export DISTRIBUTION=$1
-export RELEASE=$2
-export ARCH=$3
-export CONTAINER=$4
-export PACKAGE=$5
+export DISTRIBUTION='centos'
+export RELEASE=$1
+export ARCH=$2
+export CONTAINER=$3
+export PACKAGE=$4
 export ROOTFS="/var/lib/lxc/${CONTAINER}/rootfs"
 export WORKING_DIR="/tmp/${CONTAINER}"
 export NOW=$(date -u)
@@ -36,10 +36,10 @@ mkdir -p ${WORKING_DIR}
 info "Building box to '${PACKAGE}'..."
 
 ./common/download.sh ${DISTRIBUTION} ${RELEASE} ${ARCH} ${CONTAINER}
-./debian/vagrant-lxc-fixes.sh ${DISTRIBUTION} ${RELEASE} ${ARCH} ${CONTAINER}
-./debian/install-extras.sh ${CONTAINER}
+# ./centos/vagrant-lxc-fixes.sh ${DISTRIBUTION} ${RELEASE} ${ARCH} ${CONTAINER}
+./centos/install-extras.sh ${CONTAINER}
 ./common/prepare-vagrant-user.sh ${DISTRIBUTION} ${CONTAINER}
-./debian/clean.sh ${CONTAINER}
+./centos/clean.sh ${CONTAINER}
 ./common/package.sh ${CONTAINER} ${PACKAGE}
 
 info "Finished building '${PACKAGE}'!"

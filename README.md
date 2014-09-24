@@ -16,6 +16,8 @@ This repository contains a set of scripts for creating base boxes for usage with
   - Wheezy x86_64
   - Jessie x86_64
   - Sid x86_64
+* CentOS
+  - 6 x86_64
 
 ## Building the boxes
 
@@ -51,6 +53,7 @@ _**NOTE:** None of the base boxes below have a provisioner pre-installed_
 | Ubuntu Precise 12.04 x86_64 | [fgrehm/precise64-lxc](https://vagrantcloud.com/fgrehm/precise64-lxc) |
 | Ubuntu Trusty 14.04 x86_64 | [fgrehm/trusty64-lxc](https://vagrantcloud.com/fgrehm/trusty64-lxc) |
 | Debian Wheezy 7 x86_64 | [fgrehm/wheezy64-lxc](https://vagrantcloud.com/fgrehm/wheezy64-lxc) |
+| CentOS 6 x86_64 | [fgrehm/centos6-64-lxc](https://vagrantcloud.com/fgrehm/centos6-64-lxc) |
 
 
 ## What makes up for a vagrant-lxc base box?

@@ -12,6 +12,17 @@ info "Cleaning up '${CONTAINER}'..."
 log 'Removing temporary files...'
 rm -rf ${ROOTFS}/tmp/*
 
+# some changes to allow externally set static ips
+log 'setting nameserver to 8.8.8.8'
+echo 'nameserver 8.8.8.8' > ${ROOTFS}/etc/resolv.conf
+
+log 'adding script ${ROOTFS}/root/disable_dhcp_client.sh to disable dhcp'
+cat <<EOF > ${ROOTFS}/root/disable_dhcp_client.sh
+#!/bin/bash
+echo -e "auto lo\niface lo inet loopback" > /etc/network/interfaces
+EOF
+chmod 0700 ${ROOTFS}/root/disable_dhcp_client.sh
+
 log 'cleaning up dhcp leases'
 rm -f ${ROOTFS}/var/lib/dhcp/*
 

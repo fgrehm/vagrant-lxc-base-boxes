@@ -12,9 +12,8 @@ info "Cleaning up '${CONTAINER}'..."
 log 'Removing temporary files...'
 rm -rf ${ROOTFS}/tmp/*
 
-# some changes to allow externally set static ips
-log 'setting nameserver to 8.8.8.8'
-echo 'nameserver 8.8.8.8' > ${ROOTFS}/etc/resolv.conf
+log 'removing nameserver settings'
+echo '' > ${ROOTFS}/etc/resolv.conf
 
 log 'adding script ${ROOTFS}/root/disable_dhcp_client.sh to disable dhcp'
 cat <<EOF > ${ROOTFS}/root/disable_dhcp_client.sh

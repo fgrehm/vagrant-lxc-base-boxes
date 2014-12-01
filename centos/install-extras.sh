@@ -17,4 +17,4 @@ utils.lxc.attach yum update -y
 
 # TODO: Support for appending to this list from outside
 PACKAGES=(vim curl wget man-db bash-completion python-software-properties ca-certificates sudo nfs-common)
-utils.lxc.attach yum install install ${PACKAGES[*]} -y
+utils.lxc.attach yum install ${PACKAGES[*]} -y

@@ -17,7 +17,7 @@ elif $(grep -q 'ubuntu' ${ROOTFS}/etc/shadow); then
   chroot ${ROOTFS} groupmod -n vagrant ubuntu &>> ${LOG}
   echo -n 'vagrant:vagrant' | chroot ${ROOTFS} chpasswd
   log 'Renamed ubuntu user to vagrant and changed password.'
-elif [ ${DISTRIBUTION} = 'centos' ]; then
+elif [ ${DISTRIBUTION} = 'centos' -o ${DISTRIBUTION} = 'fedora' ]; then
   debug 'Creating vagrant user...'
   chroot ${ROOTFS} useradd --create-home -s /bin/bash -u 1000 vagrant &>> ${LOG}
   echo -n 'vagrant:vagrant' | chroot ${ROOTFS} chpasswd

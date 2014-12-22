@@ -10,8 +10,9 @@ debug 'Bringing container up'
 utils.lxc.start
 
 # Sleep for a bit so that the container can get an IP
-log 'Sleeping for 10 seconds...'
-sleep 10
+SECS=20
+log "Sleeping for $SECS seconds..."
+sleep $SECS
 
 utils.lxc.attach yum update -y
 

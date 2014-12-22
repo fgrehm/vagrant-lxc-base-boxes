@@ -17,5 +17,5 @@ sleep $SECS
 utils.lxc.attach yum update -y
 
 # TODO: Support for appending to this list from outside
-PACKAGES=(vim curl wget man bash-completion ca-certificates sudo nfs-common)
+PACKAGES=(vim curl wget man ca-certificates sudo nfs-common)
 utils.lxc.attach yum install ${PACKAGES[*]} -y

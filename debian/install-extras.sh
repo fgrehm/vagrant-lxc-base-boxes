@@ -10,8 +10,9 @@ debug 'Bringing container up'
 utils.lxc.start
 
 # Sleep for a bit so that the container can get an IP
-log 'Sleeping for 5 seconds...'
-sleep 5
+SECS=15
+log "Sleeping for $SECS seconds..."
+sleep $SECS
 
 # TODO: Support for appending to this list from outside
 PACKAGES=(vim curl wget man-db bash-completion python-software-properties ca-certificates sudo openssh-server)

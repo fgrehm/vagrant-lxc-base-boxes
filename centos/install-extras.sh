@@ -18,7 +18,7 @@ sleep $SECS
 EPEL=${EPEL:-0}
 
 # TODO: Support for appending to this list from outside
-PACKAGES=(vim curl wget man ca-certificates sudo)
+PACKAGES=(vim curl wget man ca-certificates sudo openssh-server)
 
 if [ $EPEL = 1 ]; then
   utils.lxc.attach yum update -y

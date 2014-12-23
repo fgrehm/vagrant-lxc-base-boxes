@@ -55,6 +55,6 @@ clean: ALL_BOXES = ${DEBIAN_BOXES} ${UBUNTU_BOXES} ${CENTOS_BOXES} acceptance
 clean:
 	@for r in $(ALL_BOXES); do \
 		sudo -E ./clean.sh $${r}\
-		                   vagrant-base-$${r}-$(ARCH) \
-				               output/${TODAY}/vagrant-lxc-$${r}-$(ARCH).box; \
-		done
+			vagrant-base-$${r}-$(ARCH) \
+			output/${TODAY}/vagrant-lxc-$${r}-$(ARCH).box; \
+	done

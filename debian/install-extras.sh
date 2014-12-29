@@ -18,7 +18,7 @@ PACKAGES=(vim curl wget man-db bash-completion python-software-properties ca-cer
 if [ $DISTRIBUTION = 'ubuntu' ]; then
   PACKAGES+=' software-properties-common'
 fi
-if [ $RELEASE != 'raring' ] && [ $RELEASE != 'saucy' ] && [ $RELEASE != 'trusty' ] ; then
+if [ $RELEASE != 'utopic' ] && [ $RELEASE != 'raring' ] && [ $RELEASE != 'saucy' ] && [ $RELEASE != 'trusty' ] ; then
   PACKAGES+=' nfs-common'
 fi
 utils.lxc.attach apt-get update

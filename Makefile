@@ -1,4 +1,4 @@
-UBUNTU_BOXES= precise quantal raring saucy trusty
+UBUNTU_BOXES= precise quantal raring saucy trusty utopic
 DEBIAN_BOXES= squeeze wheezy sid jessie
 CENTOS_BOXES= 6
 TODAY=$(shell date -u +"%Y-%m-%d")

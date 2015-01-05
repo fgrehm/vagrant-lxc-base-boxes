@@ -36,7 +36,9 @@ lxc.hook.clone = /usr/share/lxc/hooks/clonehostname
 #
 lxc.cap.drop = mac_admin mac_override
 lxc.cap.drop = setfcap
-lxc.cap.drop = sys_module sys_nice sys_pacct
+lxc.cap.drop = sys_module sys_pacct
+# sys_nice: needed to run CTDB
+#lxc.cap.drop = sys_nice sys_pacct
 lxc.cap.drop = sys_rawio sys_time
 
 # Control Group devices: all denied except those whitelisted

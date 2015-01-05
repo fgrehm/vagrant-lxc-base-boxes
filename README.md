@@ -11,11 +11,16 @@ This repository contains a set of scripts for creating base boxes for usage with
   - Raring 13.04 x86_64
   - Saucy 13.10 x86_64
   - Trusty 14.04 x86_64
+  - Utopic 14.10 x86_64
 * Debian
   - Squeeze x86_64
   - Wheezy x86_64
   - Jessie x86_64
   - Sid x86_64
+* Fedora
+  - 19 x86_64
+  - 20 x86_64
+  - 21 x86_64
 * CentOS
   - 6 x86_64
 

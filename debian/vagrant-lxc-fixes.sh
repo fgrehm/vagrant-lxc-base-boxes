@@ -31,3 +31,7 @@ fi
 
 utils.lxc.attach /usr/sbin/locale-gen ${LANG}
 utils.lxc.attach update-locale LANG=${LANG}
+
+# Fix to allow bindfs
+utils.lxc.attach ln -s /bin/true /sbin/modprobe
+utils.lxc.attach mknod -m 666 /dev/fuse c 10 229

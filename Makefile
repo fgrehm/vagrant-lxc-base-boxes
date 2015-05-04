@@ -52,7 +52,7 @@ release:
 	git push && git push --tags
 
 own_box:
-	@sudo -E ./mk-custom.sh ${ACTIVE_CONTAINER}
+	@sudo -E ./mk-custom.sh ${ACTIVE_CONTAINER} ${USER}
 
 clean: ALL_BOXES = ${DEBIAN_BOXES} ${UBUNTU_BOXES} ${CENTOS_BOXES} acceptance
 clean:

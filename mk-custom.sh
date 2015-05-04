@@ -1,32 +1,51 @@
 #!/bin/bash
 
-# Declare parameters
-NAME=$1
+source common/ui.sh
 
-# Stop the lxc container if running
+# Declare parameters
+export DISTRIBUTION='custom'
+export RELEASE='box'
+export NAME=$1
+export LOCALUSER=$2
+export ROOTFS="/var/lib/lxc/${NAME}"
+export CURRENT_DIR=`pwd`
+export WORKING_DIR=$CURRENT_DIR"/output/${NAME}"
+export NOW=$(date -u)
+export LOG=$(readlink -f .)/log/${NAME}.log
+
+mkdir -p $(dirname $LOG)
+echo '############################################' > ${LOG}
+echo "# Beginning build at $(date)" >> ${LOG}
+touch ${LOG}
+chmod +rw ${LOG}
+
+log "Stopping the running container"
+
 lxc-stop -n $NAME
 
 # Remove the previous working dir if existing
-if [ -d custom/$NAME ]; then
-	rm custom/$NAME -rf
+if [ -d $WORKING_DIR ]; then
+	warn "Removing existing working dir"
+	rm $WORKING_DIR -rf
 fi
 
-# Creat working dir
-mkdir custom/$NAME
+log "Create working dir"
+mkdir $WORKING_DIR
 
-# Create tar file of lxc container
-cd /var/lib/lxc/boekentoren-puppet-development/
+log "Create tar file of lxc container"
+cd $ROOTFS
 tar --numeric-owner --anchored --exclude=./rootfs/dev/log -czf rootfs.tar.gz ./rootfs/*
-chown jan: rootfs.tar.gz
-mv rootfs.tar.gz /home/Jan/Projecten/Github.com/vagrant-lxc-base-boxes/custom/$NAME
+chown $LOCALUSER: rootfs.tar.gz
+mv rootfs.tar.gz $WORKING_DIR
 
-# Build working dir structure
-cd /home/Jan/Projecten/Github.com/vagrant-lxc-base-boxes/custom/$NAME
+log "Build working dir structure"
+cd $WORKING_DIR
 cp ../../conf/centos lxc-config
 cp ../../conf/metadata.json .
 sed -i "s/<TODAY>/${NOW}/" metadata.json
 
-# Create actual vagrant box file
+
+log "Create actual vagrant box"
 tar -czf $NAME.box ./*
 cd ../../
-ls custom/$NAME/$NAME.box
+ls $WORKING_DIR/$NAME.box

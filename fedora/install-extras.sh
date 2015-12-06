@@ -14,17 +14,8 @@ SECS=20
 log "Sleeping for $SECS seconds..."
 sleep $SECS
 
-# install the fedora epel repo?
-EPEL=${EPEL:-0}
-
 # TODO: Support for appending to this list from outside
-PACKAGES=(vim curl wget man ca-certificates sudo openssh-server)
-
-if [ $EPEL = 1 ]; then
-  utils.lxc.attach yum update -y
-  utils.lxc.attach yum install epel-release -y
-  PACKAGES+=' bash-completion'
-fi
+PACKAGES=(vim curl wget man-db bash-completion ca-certificates sudo openssh-server)
 
 utils.lxc.attach yum update -y
 utils.lxc.attach yum install ${PACKAGES[*]} -y

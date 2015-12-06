@@ -47,6 +47,13 @@ make precise
 Will build a Ubuntu Precise x86_64 box with latest Puppet, Chef, Salt and
 Babushka pre-installed.
 
+```sh
+ACTIVE_CONTAINER=lxc-container-name \
+make own_box
+```
+
+Will try to build a vagrant box from an activily running lxc container. Make sure you configured the
+container for [vagrant](https://github.com/fgrehm/vagrant-lxc/blob/master/BOXES.md)!
 
 ## Pre built base boxes
 

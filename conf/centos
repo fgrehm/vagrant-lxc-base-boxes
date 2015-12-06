@@ -28,7 +28,7 @@ lxc.hook.clone = /usr/share/lxc/hooks/clonehostname
 # lxc.cap.drop = audit_control    # breaks sshd (set_loginuid failed)
 # lxc.cap.drop = audit_write
 #
-lxc.cap.drop = mac_admin mac_override setfcap setpcap
+lxc.cap.drop = mac_admin mac_override
 lxc.cap.drop = sys_module sys_nice sys_pacct
 lxc.cap.drop = sys_rawio sys_time
 
@@ -45,6 +45,12 @@ lxc.cgroup.devices.allow = c 1:8 rwm	# /dev/random
 lxc.cgroup.devices.allow = c 1:9 rwm	# /dev/urandom
 lxc.cgroup.devices.allow = c 136:* rwm	# /dev/tty[1-4] ptys and lxc console
 lxc.cgroup.devices.allow = c 5:2 rwm	# /dev/ptmx pty master
+
+# Needed by default docker config
+lxc.cgroup.devices.allow = c 5:1 rwm # /dev/console
+lxc.cgroup.devices.allow = c 4:0 rwm # /dev/tty0
+lxc.cgroup.devices.allow = c 4:1 rwm # /dev/tty1
+lxc.cgroup.devices.allow = c 10:200 rwm # /dev/net/tun
 
 # Blacklist some syscalls which are not safe in privileged
 # containers

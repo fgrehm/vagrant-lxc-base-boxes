@@ -3,7 +3,7 @@
 This repository contains a set of scripts for creating base boxes for usage with
 [vagrant-lxc](https://github.com/fgrehm/vagrant-lxc) 1.0+.
 
-## :warning: Deprecated :warning:
+## :warning: Unmaintained :warning:
 
 [I've stepped down as a maintainer of the plugin](https://github.com/fgrehm/vagrant-lxc/issues/375) and I'm no longer maintaining this repo. Feel free to use it as a starting point for your own boxes and if you need any help with that just LMK! :beers:
 

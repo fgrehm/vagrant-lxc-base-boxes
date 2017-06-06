@@ -1,0 +1,20 @@
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+  config.vm.box = "fgrehm/wheezy64-lxc"
+  config.vm.provider :lxc do |lxc|
+    # Run the script that disables DHCP client in the box before startup
+    lxc.customize 'hook.start', '/root/disable_dhcp_client.sh'
+    # Setup static IP networking
+    lxc.customize 'network.name', 'eth0'
+    lxc.customize 'network.flags', 'up'
+    lxc.customize 'network.ipv4', '10.10.10.2/24'
+    lxc.customize 'network.ipv4.gateway', '10.10.10.1'
+  end
+end
+
+# Make lxc the default provider when running Vagrant for this box
+# This is better than setting the provider globally or to have it on each vagrant up command
+ENV['VAGRANT_DEFAULT_PROVIDER'] = 'lxc'
+
